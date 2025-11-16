@@ -38,7 +38,7 @@ html, body {
 .header {
   width: 100%;
   min-height: 100dvh;
-  background: url("../img/hero-bg.jpg") center/cover no-repeat;
+  background: url(https://raw.githubusercontent.com/demchuk-webdev/inna_dugina/refs/heads/main/img/hero-bg.JPG) center/cover no-repeat;
   color: #F5F1EB;
   position: relative;
   display: flex;
@@ -372,4 +372,5 @@ padding-top: 40px;
   display: flex;
   flex-direction: column;
   padding: 10px;
+
 }
