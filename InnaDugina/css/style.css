@@ -1,0 +1,375 @@
+@import url("reset.css");
+@import url("components.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  background-color: #F5F1EB;
+  color: #3A0000;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 390px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  min-height: 100dvh;
+  background: url("../img/hero-bg.jpg") center/cover no-repeat;
+  color: #F5F1EB;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.header__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.wrapper, .header {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-attachment: scroll;
+    min-height: 100dvh;
+  }
+}
+
+h1 {
+  font-size: 96px;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 100%;
+  text-align: right;
+}
+
+.header__box-1 {
+  margin-bottom: 40px;
+}
+
+.blur-text {
+  color: #3A0000;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  background-image: url("../img/blur.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.header__box-2-title {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.header__box-2-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header__box-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+}
+
+.header__box-3-span {
+  font-weight: 100;
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.header__box-4 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header__box-4 p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
+  text-align: center;
+  color: #f5f1eb;
+  margin-bottom: 20px;
+}
+
+.header__box-4 a {
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #8b8888;
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 200px;
+  height: 30px;
+}
+
+.page__buy {
+  display: flex;
+  justify-content: center; /* по горизонталі */
+  align-items: center; /* по вертикалі */
+  height: 90px; /* або будь-яку висоту, наприклад 400px */
+  margin: 0 auto;
+  text-align: center; /* щоб кілька рядків теж центрувались */
+}
+
+.buy-frame {
+  width: 320px;
+  height: 70px;
+  border: 1px solid #8b8888;
+  border-radius: 50px;
+  padding: 6px 10px;
+  line-height: 165%;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  justify-content: center; /* по горизонталі */
+  align-items: center; /* по вертикалі */
+}
+
+.page__info {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.info-head {
+  font-size: 23px;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.info-head1 {
+  font-weight: 100;
+  line-height: 100%;
+}
+
+.theory__item {
+  position: relative;
+  list-style: none; /* прибираємо стандартну крапку списку */
+  padding-left: 35px; /* відступ під іконку */
+  margin-bottom: 20px; /* відстань між пунктами */
+}
+
+.theory__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  transform: none;
+  width: 25px;
+  height: 25px;
+  background-image: url("../img/icon-theory.png"); /* 🔹 шлях до твого зображення */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.info-theory {
+  padding: 10px;
+}
+
+.info-practice {
+  padding: 10px;
+  background-color: #BBB0AE;
+}
+
+.practice__item {
+  position: relative;
+  list-style: none; /* прибираємо стандартну крапку списку */
+  padding-left: 35px; /* відступ під іконку */
+  margin-bottom: 20px; /* відстань між пунктами */
+}
+
+.practice__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  transform: none;
+  width: 25px;
+  height: 25px;
+  background-image: url("../img/icon-practice.png"); /* 🔹 шлях до твого зображення */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.offer-details {
+  padding: 40px 25px;
+}
+
+.offer-start,
+.offer-format,
+.offer-endDostup,
+.offer-info,
+.offer-buy {
+  border: 1px solid #D79982;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+}
+
+.offer-info,
+.offer-buy {
+  flex-direction: column;
+  text-align: center;
+}
+
+.offer-left {
+  font-size: 32px;
+  font-weight: 100;
+}
+
+.offer-left2 {
+  font-size: 28px;
+  font-weight: 100;
+}
+
+.offer-right {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.offer-buy {
+  background: #d79982;
+  color: white;
+  padding: 20px 30px;
+}
+
+.selling {
+  background-color: #452C1E;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.price-top {
+  font-size: 37px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.price-old {
+  color: #bbb0ae;
+  text-decoration: line-through;
+}
+
+.selling-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.selling-frame {
+  width: 320px;
+  height: 70px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  padding: 6px 10px;
+  line-height: 165%;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center; /* по горизонталі */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.support {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: #462c1f;
+}
+
+.support p {
+  margin-bottom: 16px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: #3a0000;
+}
+
+.footer__contacts-insta{
+padding-top: 40px;
+}
+
+.offerta,
+.politika {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+  color: #3a0000;
+}
+
+.offerta {
+  padding-top: 50px;
+}
+
+.dogovir_oferta
+.conf {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
