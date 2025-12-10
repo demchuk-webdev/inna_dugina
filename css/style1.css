@@ -27,75 +27,144 @@ html, body {
   z-index: 10; /* Щоб бути над фоном боді */
 }
 
-/* --- 3. ХЕДЕР --- */
+/* ===========================
+   3. НОВИЙ HEADER (UGC STYLE)
+   =========================== */
 .header {
-  width: 100%;
-  height: 100dvh;
-  background: url('../img/hero-bg1.JPG') center/cover no-repeat;
   position: relative;
-  color: #FFFFFF;
-  padding: 20px;
+  height: 100vh;      /* На весь екран */
+  min-height: 650px;  /* Щоб на маленьких екранах не сплющувало */
+  background: url('../img/hero-bg1.JPG') no-repeat center top;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Розводить Лого вгору, а Текст вниз */
+  align-items: center;
+  padding: 30px 20px 50px; /* Відступи всередині */
+  color: #fff;
+  overflow: hidden;
 }
 
+/* Градієнт знизу, щоб текст читався на білому */
 .header::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.3); /* Трохи темніше, щоб білий текст читався */
-  z-index: 0;
+  bottom: 0; left: 0; width: 100%; height: 60%;
+  background: linear-gradient(to top, rgba(15, 32, 39, 0.9) 0%, rgba(15, 32, 39, 0.4) 50%, transparent 100%);
+  z-index: 1;
 }
 
-.header__container {
+/* --- ВЕРХ (ЛОГО - РОЗДІЛЕНЕ ПО КРАЯХ) --- */
+.header__top {
   position: relative;
-  z-index: 2; /* Поверх снігу */
-  height: 100%;
+  z-index: 2;
+  width: 100%;
+  /* Вмикаємо Flexbox для розділення */
+  display: flex;
+  justify-content: space-between; /* Головний секрет: розкидає елементи по краях */
+  align-items: flex-start;
+  padding: 10px 0; /* Відступ зверху */
+}
+
+/* Загальний стиль для обох частин тексту */
+.logo-part {
+  font-size: 48px; /* Зробив ще більшим для ефекту */
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9; /* Щоб букви стояли щільніше */
+  text-shadow: 0 4px 20px rgba(0,0,0,0.7); /* Глибока тінь для контрасту */
+}
+
+/* Ліва частина (UGC) */
+.logo-left {
+  text-align: left;
+  margin-left: -5px; /* Трохи посунути вліво, якщо треба */
+}
+
+/* Права частина (ICON) */
+.logo-right {
+  text-align: right;
+  margin-right: -5px; /* Трохи посунути вправо */
+}
+
+/* --- НИЗ (ОФЕР) --- */
+.header__bottom {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 40px;
+  align-items: center;
 }
 
-h1 { font-size: 84px; font-weight: 600; line-height: 0.9; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-h2 { font-size: 42px; text-align: right; line-height: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-
-.blur-text {
-  align-self: center;
-  background: rgba(212, 36, 38, 0.85); /* ЧЕРВОНИЙ напівпрозорий */
-  backdrop-filter: blur(5px);
-  padding: 8px 25px;
-  border-radius: 50px;
-  color: #FFFFFF; /* Білий текст */
-  text-align: center;
-  margin: 20px 0;
-  border: 1px solid rgba(255,255,255,0.3);
+/* ОНОВЛЕНИЙ БЛОК СЛОГАНА */
+.tagline {
+  font-size: 15px; /* Трохи збільшив шрифт */
+  font-weight: 700; /* Зробив жирнішим */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #FFFFFF; /* Чистий білий колір замість рожевого */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7); /* Додав тінь для контрасту */
 }
 
-.header__box-3 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  text-align: center;
-  margin-bottom: auto;
-  padding-top: 30px;
+.main-title {
+  font-size: 48px; /* Великий розмір */
+  font-weight: 800;
+  line-height: 0.95;
+  margin-bottom: 15px;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
-.header__box-3-span { font-size: 32px; font-weight: 700; display: block; color: #FF4D4D; /* Яскраво червоний акцент */ text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 
-.header__box-4 p { font-size: 18px; margin-bottom: 15px; font-weight: 600; }
-.insta {
-  background: #D42426; /* ЧЕРВОНА кнопка */
-  color: white;
-  border: 2px solid white;
-  border-radius: 12px;
-  padding: 10px 20px;
+.main-title span {
+  color: #D42426; /* Акцентний червоний */
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+
+/* Кнопка Інстаграм */
+.insta-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  font-size: 14px;
+  
+  background-color: rgba(212, 36, 38, 0.9); /* Червоний напівпрозорий */
+  backdrop-filter: blur(5px);
+  color: #fff;
+  
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.3);
+  
+  font-size: 16px;
   font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.insta-link:active {
+  transform: scale(0.95);
+  background-color: #b30000;
 }
 
 /* --- КОНТЕНТ --- */
-.page { flex: 1; color: #2C2C2C; /* Чорний текст для контрасту */ }
+/* --- КОНТЕНТ (Загальний фон) --- */
+.page {
+    flex: 1;
+    background-color: #0F2027; /* Робимо весь середній блок зеленим */
+    color: #2C2C2C;            /* Основний текст чорний */
+    position: relative;        /* Важливо для перекриття фону */
+    z-index: 11;               /* Щоб бути вище темного фону */
+}
 section { padding: 30px 20px; }
 
 .info-head {
@@ -107,12 +176,19 @@ section { padding: 30px 20px; }
   color: #D42426; /* ЧЕРВОНИЙ заголовок */
 }
 
+.theory__list {
+  list-style: none; /* ЦЕ ПРИБИРАЄ ТОЧКИ */
+  padding: 0;       /* Прибирає зайвий відступ зліва */
+  margin: 0;        /* Скидає зовнішні відступи */
+}
+
 .theory__item {
   position: relative;
   padding-left: 35px;
   margin-bottom: 18px;
   font-size: 16px;
   font-weight: 500;
+  color: #FFFFFF;
 }
 .theory__item::before {
   content: '';
@@ -135,14 +211,118 @@ section { padding: 30px 20px; }
   background: #FFF5F5; /* Ледь рожевий фон всередині */
 }
 
-.offer-buy {
-  background: #D42426; /* ЧЕРВОНИЙ ФОН */
-  color: #fff;
-  border-radius: 10px;
+/* Сам блок-контейнер */
+.offer-info {
+  /* Перемикаємо з горизонтального на вертикальний режим */
+  display: flex;
+  flex-direction: column; 
+  align-items: center; /* Центруємо вміст */
+  
+  /* Стиль рамки та фону (залишаємо як було або трохи покращуємо) */
+  border: 2px solid #D42426;
+  background: #FFF5F5;
+  border-radius: 15px;
   padding: 20px;
+  margin-bottom: 12px;
+}
+
+/* Заголовок "Кому підійде:" */
+.offer-info .offer-left2 {
+  width: 100%;
   text-align: center;
-  margin-top: 20px;
-  box-shadow: 0 10px 20px rgba(212, 36, 38, 0.3);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #D42426;
+  
+  /* Лінія-розділювач під заголовком */
+  border-bottom: 1px solid rgba(212, 36, 38, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* Текст списку */
+.offer-info .offer-right2 {
+  width: 100%;
+  text-align: left;     /* Текст вирівнюємо по лівому краю */
+  font-size: 16px;
+  line-height: 1.6;     /* Більше повітря між рядками, щоб читалось легко */
+  color: #2C2C2C;
+  font-weight: 500;
+}
+
+.offer-right2 p {
+  margin-bottom: 10px; /* Відступ між пунктами */
+}
+.offer-right2 strong {
+  color: hsl(0, 100%, 0%); /* Виділяємо головне червоним (або чорним, як хочеш) */
+}
+
+.offer-buy {
+  /* Градієнт замість суцільного кольору - виглядає дорожче */
+  background: linear-gradient(135deg, #D42426 0%, #B91C1E 100%);
+  
+  /* Текст білий */
+  color: #fff;
+  
+  /* Форма */
+  border-radius: 20px;
+  padding: 25px 20px;
+  margin-top: 25px;
+  margin-bottom: 25px; /* Відступ до наступного блоку */
+  
+  /* Розміщення елементів (іконка зліва/зверху, текст поруч) */
+  display: flex;
+  flex-direction: column; /* Вертикально: іконка над текстом */
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  
+  /* Тінь/світіння */
+  box-shadow: 0 10px 25px rgba(212, 36, 38, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Додамо легкий блік (світловий ефект) на фоні */
+.offer-buy::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Стиль іконки (емодзі) */
+.offer-buy__icon {
+  font-size: 42px; /* Велика іконка */
+  line-height: 1;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: pulse 2s infinite; /* Легка анімація пульсації */
+}
+
+/* Заголовок блоку */
+.offer-buy__title {
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+/* Опис блоку */
+.offer-buy__text {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9; /* Трохи прозоріший, щоб не сперечався з заголовком */
+}
+
+/* Анімація для іконки */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* --- ПРОДАЖ (Футер - САНТА СТАЙЛ) --- */
@@ -170,28 +350,172 @@ section { padding: 30px 20px; }
   );
 }
 
-.price-top { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
-.price-old { color: rgba(255,255,255,0.7); }
+/* Контейнер для обох цін */
+.price-top {
+  display: flex;           /* Щоб вирівняти їх в один рядок */
+  justify-content: center; /* По центру */
+  align-items: baseline;   /* Вирівнювання по низу цифр */
+  gap: 15px;               /* Відступ між старою і новою ціною */
+  
+  font-size: 64px;         /* Розмір НОВОЇ ціни (9$) - робимо великим */
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+/* Стиль старої ціни (100$) */
+.price-old {
+  font-size: 30px;                /* Значно менша за нову */
+  text-decoration: line-through;  /* ЗАКРЕСЛЕННЯ */
+  text-decoration-thickness: 2px; /* Товщина лінії закреслення */
+  color: rgba(255,255,255, 0.6);  /* Напівпрозорий, щоб не відволікав */
+  font-weight: 500;
+}
 
 .wayforpay {
   display: flex;
   justify-content: center;
   align-items: center;
+  
   width: 100%;
   height: 60px;
-  background: #fff; /* Біла кнопка */
-  color: #D42426; /* Червоний текст */
+  
+  background: #fff;
+  color: #D42426;
+  
   border-radius: 50px;
+  border: none; /* На всяк випадок */
+  
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
+  text-decoration: none; /* Прибираємо синє підкреслення */
+  
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   cursor: pointer;
+  
+  transition: transform 0.1s ease, box-shadow 0.1s;
+}
+
+/* "Живий" ефект натискання */
+.wayforpay:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* --- ФУТЕР --- */
-.footer { background-color: #FFFFFF; padding: 40px 20px; text-align: center; }
-.contacts a { color: #D42426; font-weight: 600; }
+/* Основний блок футера */
+.footer {
+  background-color: #FFFFFF;
+  padding: 40px 20px 60px; /* Трохи більше місця знизу */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Відступ між блоком підтримки і документами */
+}
+
+/* Відступи для секції */
+.support {
+  margin-bottom: 30px;
+  padding: 0 10px; /* Щоб картка не прилипала до країв */
+}
+
+/* Світла картка-підкладка */
+.support-card {
+  background-color: #F7F7F8; /* Дуже світлий сірий ("дорогий" відтінок) */
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* Заголовок "Залишились питання?" */
+.support-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2C2C2C;
+  margin-bottom: 8px;
+}
+
+/* Підпис "Ми на зв'язку" */
+.support-subtitle {
+  font-size: 15px;
+  color: #666; /* Темно-сірий для елегантності */
+  margin-bottom: 25px;
+}
+
+/* Контейнер для кнопок */
+.support-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* Відстань між кнопками */
+}
+
+/* Стиль самих кнопок (білі кола з тінню) */
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 65px;  /* Великий розмір для зручного натискання */
+  height: 65px;
+  
+  background-color: #FFFFFF;
+  border-radius: 50%; /* Робимо ідеальне коло */
+  
+  /* М'яка тінь створює об'єм */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03); 
+  
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Ефект при натисканні (легка пружина) */
+.icon-btn:active {
+  transform: scale(0.9);
+}
+
+/* Корекція розміру іконок всередині кола */
+.icon-btn img {
+  width: 32px; 
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Блок для іконок соцмереж */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Відступ між Телеграмом та Інстою */
+}
+
+/* Ефект при наведенні/натисканні на іконку */
+.social-icons a {
+  display: block;
+  transition: transform 0.2s;
+}
+
+.social-icons a:active {
+  transform: scale(0.85); /* Ефект натискання */
+}
+
+/* Блок з документами (Оферта/Політика) */
+.contacts {
+  display: flex;
+  flex-direction: column; /* Розміщуємо посилання одне під одним */
+  gap: 15px;
+  border-top: 1px solid #eee; /* Тонка лінія розмежування */
+  padding-top: 20px;
+}
+
+.contacts a {
+  color: #888; /* Сірий колір, щоб не відволікав */
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 
 /* ===========================
