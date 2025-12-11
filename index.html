@@ -47,7 +47,7 @@
 
   </header>
   <main class="page">
-    <section class="buy">
+    <!-- <section class="buy">
       <div class="page__buy">
         <div class="buy-frame">
           <a href="https://secure.wayforpay.com/invoice/iab168d19dcad" class="wayforpay" target="_blank">
@@ -55,7 +55,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="course-info">
       <div class="page__info">
@@ -74,7 +74,7 @@
     </section>
 
     <section class="video-example">
-      <p class="info-head">Результат навчання:</p>
+      <p class="info-head">Подивись, що ти змонтуєш вже під час навчання:</p>
       
       <div class="video-container">
         <video controls poster="img/video-cover.jpg" playsinline>
@@ -126,10 +126,32 @@
 
     <section class="selling">
       <div class="selling-content">
+        
+        <div class="timer-wrapper">
+          <p class="timer-label">Ціна згорить через:</p>
+          <div id="countdown" class="countdown">
+            <div class="time-box">
+              <span id="hours">00</span>
+              <span class="label">год</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <span class="label">хв</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <span class="label">сек</span>
+            </div>
+          </div>
+        </div>
         <p class="price-label">Твоя ціна сьогодні:</p>
+        
         <div class="selling-price">
           <p class="price-top"><span class="price-old">100$</span> 9$</p>
         </div>
+        
         <div class="selling-button-container">
           <a href="https://secure.wayforpay.com/invoice/iab168d19dcad" class="wayforpay" target="_blank">
             ОПЛАТИТИ НАВЧАННЯ
@@ -161,5 +183,33 @@
   </footer>
 
 </div>
+<script>
+  function updateTimer() {
+    const now = new Date();
+    // Встановлюємо кінець поточної доби (23:59:59)
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+
+    let diff = endOfDay - now;
+
+    // Якщо раптом час вийшов (наприклад, 23:59:59.999), починаємо нову добу
+    if (diff < 0) {
+      diff = 0; 
+    }
+
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    // Додаємо нуль спереду, якщо цифра менша 10
+    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+  }
+
+  // Запускаємо таймер одразу і оновлюємо кожну секунду
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
 </body>
 </html>
