@@ -598,61 +598,73 @@ video {
 }
 
 /* ===========================
-   ТАЙМЕР ЗВОРОТНЬОГО ВІДЛІКУ
+   ТАЙМЕР ЗВОРОТНЬОГО ВІДЛІКУ (ВИПРАВЛЕНИЙ)
    =========================== */
 .timer-wrapper {
-  margin-bottom: 25px;
-  background: rgba(0, 0, 0, 0.2); /* Легке затемнення під таймером */
-  padding: 15px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.25); /* Трохи темніше */
+  padding: 15px 10px; /* Менші відступи збоку */
   border-radius: 15px;
-  display: inline-block; /* Щоб рамка облягала таймер */
-  border: 1px solid rgba(255,255,255,0.2);
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.15);
+  width: 100%; /* Займає всю ширину контейнера */
+  max-width: 320px; /* Але не ширше ніж треба */
 }
 
 .timer-label {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
   font-weight: 600;
-  color: #ffcccc; /* Світло-рожевий */
+  color: #ffcccc;
 }
 
 .countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-family: "Inter", sans-serif; /* Використовуємо твій шрифт */
+  display: flex; /* Шикуємо в ряд */
+  flex-direction: row; /* Примусово горизонтально */
+  flex-wrap: nowrap; /* ЗАБОРОНЯЄМО переносити на новий рядок */
+  justify-content: center; /* По центру */
+  align-items: start; /* Вирівнювання по верху */
+  gap: 8px; /* Відступ між цифрами і двокрапками */
+  font-family: "Inter", sans-serif;
 }
 
 .time-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 50px; /* Фіксована ширина для цифр, щоб не стрибали */
 }
 
 .time-box span:first-child {
-  font-size: 32px; /* Великі цифри */
+  /* Цифри */
+  font-size: 36px; 
   font-weight: 800;
   line-height: 1;
-  font-variant-numeric: tabular-nums; /* Щоб цифри не стрибали по ширині */
+  color: #fff;
+  font-variant-numeric: tabular-nums;
 }
 
 .time-box .label {
+  /* Підписи (год, хв) */
   font-size: 10px;
   text-transform: uppercase;
   opacity: 0.8;
   margin-top: 5px;
+  font-weight: 500;
 }
 
 .separator {
+  /* Двокрапки */
   font-size: 28px;
   font-weight: 700;
-  margin-top: -15px; /* Трохи підняти двокрапки */
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+  padding-top: 2px; /* Трохи опустити, щоб було рівно з цифрами */
   animation: blink 1s infinite;
 }
 
 @keyframes blink {
-  50% { opacity: 0.5; }
+  50% { opacity: 0.3; }
 }
