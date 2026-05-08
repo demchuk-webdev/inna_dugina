@@ -7,6 +7,7 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style1.css">
   
   <style>
@@ -170,7 +171,7 @@
         <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <div class="doc-title">Договір оферти</div>
+    <div class="doc-title text-gradient" style="font-size: 1.2rem; font-weight: 800;">ДОГОВІР ОФЕРТИ</div>
   </header>
 
   <main class="doc-body">
@@ -283,5 +284,16 @@
   </main>
 </div>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.querySelectorAll('.doc-body h4, .doc-body p, .highlight, .requisites, .styled-list span').forEach((el) => {
+      el.setAttribute('data-aos', 'fade-up');
+    });
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 30,
+    });
+  </script>
 </body>
 </html>
