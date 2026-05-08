@@ -6,24 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style1.css">
   <title>UGC ICON | Інна Дугіна</title>
 </head>
 
 <body>
-  <!-- Snow effect if we still want it, or maybe a modern particle effect. Let's keep snow -->
-  <div class="snow-container">
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-  </div>
-
   <div class="mobile-wrapper">
     <header class="hero">
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-        <div class="hero__top">
+        <div class="hero__top hero-animate-down">
           <div class="hero__logo-split">
             <span class="logo-left">UGC</span>
             <span class="logo-right text-gradient">ICON</span>
@@ -34,7 +28,7 @@
           </div>
         </div>
 
-        <div class="hero__bottom">
+        <div class="hero__bottom hero-animate-up">
           <h1 class="hero__main-title">SPRING <span>SALE</span></h1>
 
           <p class="hero__subtitle">
@@ -55,22 +49,22 @@
     </header>
 
     <main class="main-content">
-      <section class="program-section">
-        <div class="card glass">
+      <section class="program-section" data-aos="fade-up">
+        <div class="card glass tilt-card">
           <h2 class="card__title">ПРОГРАМА НАВЧАННЯ:</h2>
           <ul class="feature-list theory-list">
-            <li>Дізнаєшся як налаштувати свій телефон, щоб знімати гарні якісні відео;</li>
-            <li>Навчишся налаштовувати Instagram для кращого завантаження своїх робіт;</li>
-            <li>Завантажиш CapCut і опануєш роботу в ньому;</li>
-            <li>Зрозумієш як знімати динамічні Street відео;</li>
-            <li>Навчишся монтувати в CapCut використовуючи колажі, вирізаючи об'єкти і застосовуючи ефекти;</li>
-            <li><span class="emoji-bullet">🎁</span> Доступ в телеграм канал з трендами та ідеями для відео.</li>
+            <li data-aos="fade-left" data-aos-delay="100">Дізнаєшся як налаштувати свій телефон, щоб знімати гарні якісні відео;</li>
+            <li data-aos="fade-left" data-aos-delay="200">Навчишся налаштовувати Instagram для кращого завантаження своїх робіт;</li>
+            <li data-aos="fade-left" data-aos-delay="300">Завантажиш CapCut і опануєш роботу в ньому;</li>
+            <li data-aos="fade-left" data-aos-delay="400">Зрозумієш як знімати динамічні Street відео;</li>
+            <li data-aos="fade-left" data-aos-delay="500">Навчишся монтувати в CapCut використовуючи колажі, вирізаючи об'єкти і застосовуючи ефекти;</li>
+            <li data-aos="fade-left" data-aos-delay="600"><span class="emoji-bullet">🎁</span> Доступ в телеграм канал з трендами та ідеями для відео.</li>
           </ul>
         </div>
       </section>
 
-      <section class="video-example">
-        <div class="card glass">
+      <section class="video-example" data-aos="fade-up">
+        <div class="card glass tilt-card">
           <h2 class="card__title">Подивись, що ти змонтуєш вже під час навчання:</h2>
           <div class="video-wrapper">
             <video controls poster="img/video-cover.jpg" playsinline class="custom-video">
@@ -84,39 +78,33 @@
 
       <section class="offer-section">
         <div class="details-grid">
-          <div class="detail-item glass">
+          <div class="detail-item glass tilt-card" data-aos="fade-up" data-aos-delay="100">
             <span class="detail-label">Коли:</span>
             <span class="detail-value text-accent">набір відкрито</span>
           </div>
-          <div class="detail-item glass">
+          <div class="detail-item glass tilt-card" data-aos="fade-up" data-aos-delay="200">
             <span class="detail-label">Формат:</span>
             <span class="detail-value">Онлайн</span>
           </div>
-          <div class="detail-item glass">
+          <div class="detail-item glass tilt-card" data-aos="fade-up" data-aos-delay="300">
             <span class="detail-label">Доступ:</span>
             <span class="detail-value">до 01.09.2026</span>
           </div>
         </div>
 
-        <div class="card glass highlight-card">
+        <div class="card glass highlight-card tilt-card" data-aos="zoom-in" data-aos-delay="200">
           <h3 class="card__title">ЦЕЙ КУРС ДЛЯ ТЕБЕ, ЯКЩО:</h3>
           <ul class="benefit-list">
-            <li><span class="emoji-bullet">⚡</span> <strong>тільки починаєш:</strong> хочеш стартувати у відеозйомці
-              правильно;</li>
-            <li><span class="emoji-bullet">📱</span> <strong>маєш Android:</strong> і хочеш витиснути з нього
-              максимальну якість;</li>
-            <li><span class="emoji-bullet">🎬</span> <strong>хочеш монтувати:</strong> мрієш створювати ефектні відео в
-              UGC форматі;</li>
-            <li><span class="emoji-bullet">🤔</span> <strong>не знаєш CapCut:</strong> лякають кнопки і не знаєш, як
-              його скачати;</li>
-            <li><span class="emoji-bullet">💡</span> <strong>немає ідей:</strong> постійно думаєш "що ж мені зняти?";
-            </li>
-            <li class="highlight-item"><span class="emoji-bullet">🎁</span> <strong>бонус:</strong> отримаєш актуальні
-              вакансії для співпраці з брендами.</li>
+            <li data-aos="fade-right" data-aos-delay="300"><span class="emoji-bullet">⚡</span> <strong>тільки починаєш:</strong> хочеш стартувати у відеозйомці правильно;</li>
+            <li data-aos="fade-right" data-aos-delay="400"><span class="emoji-bullet">📱</span> <strong>маєш Android:</strong> і хочеш витиснути з нього максимальну якість;</li>
+            <li data-aos="fade-right" data-aos-delay="500"><span class="emoji-bullet">🎬</span> <strong>хочеш монтувати:</strong> мрієш створювати ефектні відео в UGC форматі;</li>
+            <li data-aos="fade-right" data-aos-delay="600"><span class="emoji-bullet">🤔</span> <strong>не знаєш CapCut:</strong> лякають кнопки і не знаєш, як його скачати;</li>
+            <li data-aos="fade-right" data-aos-delay="700"><span class="emoji-bullet">💡</span> <strong>немає ідей:</strong> постійно думаєш "що ж мені зняти?";</li>
+            <li class="highlight-item" data-aos="fade-up" data-aos-delay="800"><span class="emoji-bullet">🎁</span> <strong>бонус:</strong> отримаєш актуальні вакансії для співпраці з брендами.</li>
           </ul>
         </div>
 
-        <div class="alert-box glass-accent">
+        <div class="alert-box glass-accent tilt-card" data-aos="flip-up">
           <div class="alert-icon">🎁</div>
           <div class="alert-content">
             <h4>Така можливість буває рідко</h4>
@@ -125,7 +113,7 @@
         </div>
       </section>
 
-      <section class="pricing-section glass-dark">
+      <section class="pricing-section glass-dark tilt-card" data-aos="fade-up">
         <div class="timer-box">
           <p class="timer-label">Ціна згорить через:</p>
           <div id="countdown" class="countdown">
@@ -147,19 +135,19 @@
         </div>
 
         <p class="price-title">Твоя ціна сьогодні:</p>
-        <div class="price-box">
+        <div class="price-box" data-aos="zoom-in" data-aos-delay="200">
           <span class="price-old">100$</span>
           <span class="price-new">9$</span>
         </div>
-
-        <a href="https://secure.wayforpay.com/payment/innadugina.site" class="btn-primary pulse" target="_blank">
+        
+        <a href="https://secure.wayforpay.com/payment/innadugina.site" class="btn-primary pulse" target="_blank" data-aos="fade-up" data-aos-delay="400">
           ОПЛАТИТИ НАВЧАННЯ
         </a>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="support-block glass">
+      <div class="support-block glass tilt-card" data-aos="fade-up">
         <h4 class="support-title">Залишились питання?</h4>
         <p>Я на зв'язку, пиши:</p>
         <div class="social-links">
@@ -178,7 +166,26 @@
     </footer>
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script>
+    // Ініціалізація AOS (Анімація при скролі)
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+    });
+    
+    // Ініціалізація Vanilla Tilt (3D нахил карток)
+    VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+      max: 5,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.15,
+      scale: 1.02
+    });
+
+    // Таймер
     function updateTimer() {
       const now = new Date();
       const endOfDay = new Date();
