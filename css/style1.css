@@ -687,9 +687,17 @@ body {
   100% { transform: scale(1.45); opacity: 0; }
 }
 
-/* Soft Premium Separators between Main Sections */
-.main-content > section:not(:last-child) {
+/* Soft Premium Separators between Main Sections & Z-index Layering */
+.main-content > section {
   position: relative;
+  z-index: 1;
+  transition: z-index 0.3s ease;
+}
+
+.main-content > section:hover,
+.main-content > section:active,
+.main-content > section:focus-within {
+  z-index: 10; /* Піднімає всю секцію над іншими при взаємодії в 3D просторі */
 }
 
 .main-content > section:not(:last-child)::after {
