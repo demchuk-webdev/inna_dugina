@@ -126,3 +126,16 @@ if (progressBar) {
   window.addEventListener("resize", updateProgressBar, { passive: true });
   updateProgressBar();
 }
+
+// Показ липкого хедера при скролі вниз (повз перший екран Hero)
+const stickyHeader = document.getElementById("sticky-header");
+if (stickyHeader) {
+  window.addEventListener("scroll", () => {
+    const winScroll = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+    if (winScroll > 450) {
+      stickyHeader.classList.add("visible");
+    } else {
+      stickyHeader.classList.remove("visible");
+    }
+  }, { passive: true });
+}
