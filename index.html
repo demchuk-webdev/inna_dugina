@@ -27,6 +27,8 @@
   <!-- Favicon -->
   <link rel="icon" href="img/ptichka.png" type="image/png">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -89,7 +91,7 @@
         <div class="card glass tilt-card">
           <h2 class="card__title">Подивись, що ти змонтуєш вже під час навчання:</h2>
           <div class="video-wrapper">
-            <video controls poster="img/video-cover.jpg" playsinline class="custom-video">
+            <video controls poster="img/video-cover.jpg" playsinline preload="metadata" class="custom-video">
               <source src="video/1211.mp4" type="video/mp4">
               Твій браузер не підтримує відео.
             </video>
@@ -174,10 +176,10 @@
         <p>Я на зв'язку, пиши:</p>
         <div class="social-links">
           <a href="https://t.me/innaduginaa" class="social-icon" target="_blank">
-            <img src="img/Telegram.png" alt="Telegram">
+            <img src="img/Telegram.png" alt="Telegram" loading="lazy">
           </a>
           <a href="https://www.instagram.com/inna__dugina/" class="social-icon" target="_blank">
-            <img src="img/instagram.svg" alt="Instagram">
+            <img src="img/instagram.svg" alt="Instagram" loading="lazy">
           </a>
         </div>
       </div>
