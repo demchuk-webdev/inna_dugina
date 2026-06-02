@@ -367,10 +367,9 @@ padding-top: 40px;
   padding-top: 50px;
 }
 
-.dogovir_oferta
+.dogovir_oferta,
 .conf {
   display: flex;
   flex-direction: column;
   padding: 10px;
-
 }
