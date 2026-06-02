@@ -18,7 +18,39 @@ if (typeof VanillaTilt !== 'undefined') {
   });
 }
 
-// Таймер зворотного відліку до кінця доби
+// --- Розумний вічнозелений таймер (Evergreen Timer) ---
+// Час дії пропозиції для користувача: 2 години (в мілісекундах)
+const PROMO_DURATION = 2 * 60 * 60 * 1000; 
+// Якщо таймер закінчився більше ніж 24 години тому, скидаємо його для нового візиту
+const RESET_AFTER = 24 * 60 * 60 * 1000; 
+
+function getTimerTarget() {
+  const savedEnd = localStorage.getItem('ugc_promo_end');
+  const now = Date.now();
+
+  if (!savedEnd) {
+    const newEnd = now + PROMO_DURATION;
+    localStorage.setItem('ugc_promo_end', newEnd.toString());
+    return newEnd;
+  }
+
+  const endTimestamp = parseInt(savedEnd, 10);
+
+  // Якщо таймер закінчився
+  if (now > endTimestamp) {
+    // Якщо минуло більше ніж 24 години, запускаємо таймер заново (новий візит)
+    if (now - endTimestamp > RESET_AFTER) {
+      const newEnd = now + PROMO_DURATION;
+      localStorage.setItem('ugc_promo_end', newEnd.toString());
+      return newEnd;
+    }
+  }
+
+  return endTimestamp;
+}
+
+let timerInterval;
+
 function updateTimer() {
   const hoursElement = document.getElementById("hours");
   const minutesElement = document.getElementById("minutes");
@@ -26,11 +58,16 @@ function updateTimer() {
 
   if (!hoursElement || !minutesElement || !secondsElement) return;
 
-  const now = new Date();
-  const endOfDay = new Date();
-  endOfDay.setHours(23, 59, 59, 999);
-  let diff = endOfDay - now;
-  if (diff < 0) diff = 0;
+  const targetTime = getTimerTarget();
+  const now = Date.now();
+  let diff = targetTime - now;
+
+  if (diff <= 0) {
+    diff = 0;
+    if (timerInterval) {
+      clearInterval(timerInterval);
+    }
+  }
 
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -43,6 +80,6 @@ function updateTimer() {
 
 // Запуск таймера, якщо елементи присутні на сторінці
 if (document.getElementById("countdown")) {
-  setInterval(updateTimer, 1000);
   updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
 }
