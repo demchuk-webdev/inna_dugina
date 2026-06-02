@@ -820,10 +820,13 @@ html {
 
 /* Card Hover Glow effect */
 .tilt-card {
+  position: relative;
+  z-index: 1;
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.tilt-card:hover {
+.tilt-card:hover, .tilt-card:active, .tilt-card:focus {
   border-color: rgba(255, 70, 85, 0.3);
   box-shadow: 0 10px 30px rgba(255, 70, 85, 0.08);
+  z-index: 10; /* Піднімає Z-index при взаємодії, щоб 3D-картка не заходила під сусідні блоки в Safari */
 }
