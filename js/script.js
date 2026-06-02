@@ -104,13 +104,25 @@ if (ugcVideo && videoPlayBtn) {
   });
 }
 
-// Індикатор прогресу прокрутки сторінки (Scroll Progress Bar)
+// Індикатор прогресу прокрутки сторінки (Scroll Progress Bar) - Safari/iOS Сумісний
 const progressBar = document.getElementById("scroll-progress");
 if (progressBar) {
-  window.addEventListener("scroll", () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const updateProgressBar = () => {
+    const winScroll = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+    const docHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+    const height = docHeight - window.innerHeight;
     const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-    progressBar.style.width = scrolled + "%";
-  });
+    progressBar.style.width = Math.min(scrolled, 100) + "%";
+  };
+
+  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  window.addEventListener("resize", updateProgressBar, { passive: true });
+  updateProgressBar();
 }

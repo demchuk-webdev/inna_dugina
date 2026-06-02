@@ -747,9 +747,10 @@ html {
   line-height: 1.2;
 }
 
-/* Scroll Progress Bar styling */
+/* Scroll Progress Bar styling - Safari/iOS Sticky Compatible */
 .scroll-progress-bar {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
   left: 0;
   width: 0%;
@@ -759,13 +760,13 @@ html {
   transition: width 0.1s ease;
 }
 
-/* List Items Micro-interactions (Program & Benefits) */
+/* List Items Micro-interactions (Program & Benefits) - Safari/AOS Compatible using Padding */
 .feature-list li, .benefit-list li {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+  transition: padding-left 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
 .feature-list li:hover, .benefit-list li:hover {
-  transform: translateX(6px);
+  padding-left: 42px; /* Original 36px + 6px shifts */
   color: #fff;
 }
 
