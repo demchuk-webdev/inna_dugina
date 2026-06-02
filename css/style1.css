@@ -658,3 +658,103 @@ body {
   height: 1px;
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0) 100%);
 }
+
+/* --- UI/UX Premium Additions --- */
+
+/* Silky Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Horizontal Details Grid (3-column layout) */
+.details-grid-premium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.detail-item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 8px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-item-card:hover {
+  border-color: rgba(255, 70, 85, 0.25);
+  box-shadow: 0 8px 24px rgba(255, 70, 85, 0.06);
+  transform: translateY(-2px);
+}
+
+.detail-card-icon {
+  color: #ff3b30;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 70, 85, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 70, 85, 0.2);
+  transition: all 0.3s ease;
+}
+
+.detail-item-card:hover .detail-card-icon {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(255, 42, 95, 0.3);
+}
+
+.detail-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.detail-card-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* Scroll Progress Bar styling */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent-gradient);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* List Items Micro-interactions (Program & Benefits) */
+.feature-list li, .benefit-list li {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.feature-list li:hover, .benefit-list li:hover {
+  transform: translateX(6px);
+  color: #fff;
+}
+
+/* Card Hover Glow effect */
+.tilt-card {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tilt-card:hover {
+  border-color: rgba(255, 70, 85, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 70, 85, 0.08);
+}

@@ -103,3 +103,14 @@ if (ugcVideo && videoPlayBtn) {
     videoPlayBtn.classList.add("hidden");
   });
 }
+
+// Індикатор прогресу прокрутки сторінки (Scroll Progress Bar)
+const progressBar = document.getElementById("scroll-progress");
+if (progressBar) {
+  window.addEventListener("scroll", () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+    progressBar.style.width = scrolled + "%";
+  });
+}
