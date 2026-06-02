@@ -666,20 +666,33 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Horizontal Details Grid (3-column layout) */
+/* Horizontal Details Grid (3-column layout) - Safari Compatible Flexbox */
 .details-grid-premium {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .detail-item-card {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 16px 8px;
+  padding: 16px 4px;
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -702,6 +715,13 @@ html {
   border-radius: 50%;
   border: 1px solid rgba(255, 70, 85, 0.2);
   transition: all 0.3s ease;
+}
+
+.detail-card-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .detail-item-card:hover .detail-card-icon {
