@@ -747,10 +747,9 @@ html {
   line-height: 1.2;
 }
 
-/* Scroll Progress Bar styling - Safari/iOS Sticky Compatible */
+/* Scroll Progress Bar styling - Safari Fixed Safari/Desktop Compatible */
 .scroll-progress-bar {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 0%;
@@ -758,6 +757,13 @@ html {
   background: var(--accent-gradient);
   z-index: 9999;
   transition: width 0.1s ease;
+}
+
+@media (min-width: 480px) {
+  .scroll-progress-bar {
+    left: calc(50% - 240px);
+    max-width: 480px;
+  }
 }
 
 /* List Items Micro-interactions (Program & Benefits) - Safari/AOS Compatible using Padding */
