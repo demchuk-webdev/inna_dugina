@@ -90,11 +90,16 @@
       <section class="video-example" data-aos="fade-up">
         <div class="card glass tilt-card">
           <h2 class="card__title">Подивись, що ти змонтуєш вже під час навчання:</h2>
-          <div class="video-wrapper">
-            <video controls poster="img/video-cover.jpg" playsinline preload="metadata" class="custom-video">
+          <div class="video-wrapper" style="position: relative;">
+            <video id="ugc-video" poster="img/video-cover.jpg" playsinline preload="metadata" class="custom-video">
               <source src="video/1211.mp4" type="video/mp4">
               Твій браузер не підтримує відео.
             </video>
+            <button class="video-play-btn" id="video-play-btn" aria-label="Відтворити відео">
+              <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;">
+                <path d="M22.5 12.3397C23.8333 13.1095 23.8333 15.0337 22.5 15.8035L4.5 26.1962C3.16666 26.966 1.5 26.0039 1.5 24.4644L1.5 3.79979C1.5 2.26029 3.16667 1.29816 4.5 2.06796L22.5 12.3397Z" fill="white"/>
+              </svg>
+            </button>
           </div>
           <p class="video-caption">*саме розбір цього відео входить у програму</p>
         </div>

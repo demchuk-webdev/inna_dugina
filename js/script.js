@@ -83,3 +83,23 @@ if (document.getElementById("countdown")) {
   updateTimer();
   timerInterval = setInterval(updateTimer, 1000);
 }
+
+// Керування кастомною кнопкою запуску відео
+const ugcVideo = document.getElementById("ugc-video");
+const videoPlayBtn = document.getElementById("video-play-btn");
+
+if (ugcVideo && videoPlayBtn) {
+  const startVideo = () => {
+    ugcVideo.play();
+    ugcVideo.setAttribute("controls", "true");
+    videoPlayBtn.classList.add("hidden");
+  };
+
+  videoPlayBtn.addEventListener("click", startVideo);
+  
+  // Якщо користувач запустить відео кліком по самому плеєру (на деяких мобільних пристроях)
+  ugcVideo.addEventListener("play", () => {
+    ugcVideo.setAttribute("controls", "true");
+    videoPlayBtn.classList.add("hidden");
+  });
+}
