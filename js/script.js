@@ -104,7 +104,7 @@ if (ugcVideo && videoPlayBtn) {
   });
 }
 
-// Індикатор прогресу прокрутки сторінки (Scroll Progress Bar) - Safari/iOS Сумісний
+// Індикатор прогресу прокрутки сторінки (Scroll Progress Bar) - Safari/iOS Сумісний з Throttling через requestAnimationFrame
 const progressBar = document.getElementById("scroll-progress");
 if (progressBar) {
   const updateProgressBar = () => {
@@ -122,7 +122,18 @@ if (progressBar) {
     progressBar.style.width = Math.min(scrolled, 100) + "%";
   };
 
-  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateProgressBar();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", updateProgressBar, { passive: true });
   updateProgressBar();
 }
