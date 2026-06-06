@@ -138,3 +138,44 @@ if (progressBar) {
   updateProgressBar();
 }
 
+// --- Google Analytics Event Tracking ---
+document.addEventListener("DOMContentLoaded", () => {
+  // Track Payment Button Click
+  const payButtons = document.querySelectorAll('a[href*="wayforpay.com"]');
+  payButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'begin_checkout', {
+          'event_category': 'engagement',
+          'event_label': 'Pay Course Button'
+        });
+      }
+    });
+  });
+
+  // Track Telegram Support Click
+  const tgButtons = document.querySelectorAll('a[href*="t.me"]');
+  tgButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'contact_telegram', {
+          'event_category': 'engagement',
+          'event_label': 'Telegram Support Link'
+        });
+      }
+    });
+  });
+
+  // Track Instagram Support Click
+  const instaButtons = document.querySelectorAll('a[href*="instagram.com"]');
+  instaButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'contact_instagram', {
+          'event_category': 'engagement',
+          'event_label': 'Instagram Support Link'
+        });
+      }
+    });
+  });
+});
